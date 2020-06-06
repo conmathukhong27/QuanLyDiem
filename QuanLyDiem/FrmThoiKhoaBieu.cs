@@ -59,9 +59,25 @@ cmbPhong, "MaPhong", "MaPhong");
             cmbLop.SelectedIndex = -1;
             cmbMon.SelectedIndex = -1;
             cmbPhong.SelectedIndex = -1;
-            rdohk1.Checked = false; rdohk2.Checked = false; rdohk3.Checked = false; rdohk4.Checked = false; rdohk5.Checked = false; rdohk6.Checked = false; rdohk7.Checked = false; rdohk8.Checked = false;
-            rdoca1.Checked = false; rdoca2.Checked = false; rdoca3.Checked = false; rdoca4.Checked = false; rdoca5.Checked = false;
-            chk2.Checked = false; chk3.Checked = false; chk3.Checked = false; chk4.Checked = false; chk5.Checked = false; chk6.Checked = false; chk7.Checked = false;
+            rdohk1.Checked = false;
+            rdohk2.Checked = false;
+            rdohk3.Checked = false;
+            rdohk4.Checked = false;
+            rdohk5.Checked = false;
+            rdohk6.Checked = false;
+            rdohk7.Checked = false; 
+            rdohk8.Checked = false;
+            rdoca1.Checked = false;
+            rdoca2.Checked = false;
+            rdoca3.Checked = false;
+            rdoca4.Checked = false;
+            rdoca5.Checked = false;
+            chk2.Checked = false;
+            chk3.Checked = false; 
+            chk4.Checked = false; 
+            chk5.Checked = false;
+            chk6.Checked = false;
+            chk7.Checked = false;
             btnLuu.Enabled = true;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
@@ -223,46 +239,121 @@ cmbPhong, "MaPhong", "MaPhong");
             if (GridViewTKB.CurrentRow.Cells["HocKy"].Value.ToString() == "8")
                 rdohk8.Checked = true;
             if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Hai_Ba_")
-            { chk2.Checked = true; chk3.Checked = true;chk4.Checked = false;chk5.Checked = false;chk6.Checked = false;chk7.Checked = false; };
+            { chk2.Checked = true;
+                chk3.Checked = true;
+                chk4.Checked = false;
+                chk5.Checked = false;
+                chk6.Checked = false;
+                chk7.Checked = false; };
 
             if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Ba_Tư_")
-            { chk3.Checked = true; chk4.Checked = true;chk5.Checked = false; chk6.Checked = false; chk7.Checked = false; chk2.Checked = false; };
+            { chk3.Checked = true;
+                chk4.Checked = true;
+                chk5.Checked = false;
+                chk6.Checked = false;
+                chk7.Checked = false;
+                chk2.Checked = false; };
             if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Tư_Năm_")
-            { chk4.Checked = true; chk5.Checked = true; chk2.Checked = false; chk3.Checked = false; chk6.Checked = false; chk7.Checked = false; };
+            { chk4.Checked = true;
+                chk5.Checked = true;
+                chk2.Checked = false;
+                chk3.Checked = false;
+                chk6.Checked = false;
+                chk7.Checked = false; };
             if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Năm_Sáu_")
-            { chk5.Checked = true; chk6.Checked = true; chk2.Checked = false; chk3.Checked = false; chk4.Checked = false; chk7.Checked = false; };
+            { chk5.Checked = true;
+                chk6.Checked = true;
+                chk2.Checked = false;
+                chk3.Checked = false;
+                chk4.Checked = false;
+                chk7.Checked = false; };
             if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Sáu_Bảy_")
-            { chk6.Checked = true; chk7.Checked = true; chk2.Checked = false; chk3.Checked = false; chk4.Checked = false; chk5.Checked = false; };
+            { chk6.Checked = true;
+                chk7.Checked = true;
+                chk2.Checked = false;
+                chk3.Checked = false;
+                chk4.Checked = false;
+                chk5.Checked = false; };
             
             if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Hai_Bảy_")
-            { chk7.Checked = true; chk2.Checked = true; chk3.Checked = false; chk4.Checked = false; chk5.Checked = false; chk6.Checked = false; };
+            { chk7.Checked = true;
+                chk2.Checked = true;
+                chk3.Checked = false;
+                chk4.Checked = false;
+                chk5.Checked = false;
+                chk6.Checked = false; };
             if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Hai_Tư_")
-            { chk4.Checked = true; chk2.Checked = true; chk3.Checked = false; chk5.Checked = false; chk6.Checked = false; chk7.Checked = false; };
+            { chk4.Checked = true;
+                chk2.Checked = true;
+                chk3.Checked = false;
+                chk5.Checked = false;
+                chk6.Checked = false;
+                chk7.Checked = false; };
            
             if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Hai_Năm_")
-            { chk5.Checked = true; chk2.Checked = true; chk3.Checked = false; chk4.Checked = false; chk6.Checked = false; chk7.Checked = false; };
+            { chk5.Checked = true;
+                chk2.Checked = true;
+                chk3.Checked = false;
+                chk4.Checked = false;
+                chk6.Checked = false;
+                chk7.Checked = false; };
             
             if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Hai_Sáu_")
-            { chk6.Checked = true; chk2.Checked = true; chk3.Checked = false; chk4.Checked = false; chk5.Checked = false; chk7.Checked = false; };
+            { chk6.Checked = true;
+                chk2.Checked = true;
+                chk3.Checked = false;
+                chk4.Checked = false;
+                chk5.Checked = false;
+                chk7.Checked = false; };
             
             if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Ba_Năm_")
-            { chk3.Checked = true; chk5.Checked = true; chk2.Checked = false; chk4.Checked = false; chk6.Checked = false; chk7.Checked = false; };
+            { chk3.Checked = true;
+                chk5.Checked = true;
+                chk2.Checked = false;
+                chk4.Checked = false;
+                chk6.Checked = false;
+                chk7.Checked = false; };
             
             if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Ba_Sáu_")
-            { chk3.Checked = true; chk6.Checked = true; chk2.Checked = false; chk4.Checked = false; chk5.Checked = false; chk7.Checked = false; };
+            { chk3.Checked = true;
+                chk6.Checked = true;
+                chk2.Checked = false;
+                chk4.Checked = false;
+                chk5.Checked = false;
+                chk7.Checked = false; };
             
             if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Ba_Bảy_")
-            { chk3.Checked = true; chk7.Checked = true; chk2.Checked = false; chk4.Checked = false; chk5.Checked = false; chk6.Checked = false; };
+            { chk3.Checked = true;
+                chk7.Checked = true;
+                chk2.Checked = false;
+                chk4.Checked = false;
+                chk5.Checked = false;
+                chk6.Checked = false; };
             
 
             if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Tư_Sáu_")
-            { chk4.Checked = true; chk6.Checked = true; chk2.Checked = false; chk3.Checked = false; chk5.Checked = false; chk7.Checked = false; };
+            { chk4.Checked = true;
+                chk6.Checked = true;
+                chk2.Checked = false;
+                chk3.Checked = false;
+                chk5.Checked = false; 
+                chk7.Checked = false; };
             
             if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Tư_Bảy_")
-            { chk4.Checked = true; chk7.Checked = true; chk2.Checked = false; chk3.Checked = false; chk5.Checked = false; chk6.Checked = false; };
+            { chk4.Checked = true;
+                chk7.Checked = true;
+                chk2.Checked = false;
+                chk3.Checked = false;
+                chk5.Checked = false;
+                chk6.Checked = false; };
             
             if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Năm_Bảy_")
-            { chk5.Checked = true; chk7.Checked = true; chk2.Checked = false; chk3.Checked = false; chk4.Checked = false; chk6.Checked = false; };
+            { chk5.Checked = true;
+                chk7.Checked = true;
+                chk2.Checked = false;
+                chk3.Checked = false;
+                chk4.Checked = false;
+                chk6.Checked = false; };
             
 
             if (GridViewTKB.CurrentRow.Cells["CaHoc"].Value.ToString() == "1")

@@ -27,21 +27,28 @@ namespace QuanLyDiem
             DAO.FillDataToCombo("SELECT MaLop FROM Thoi_Khoa_Bieu group by(MaLop)", cmbLop,
 "MaLop", "MaLop");
             cmbLop.SelectedIndex = -1;
-            DAO.FillDataToCombo("SELECT HocKy  FROM Thoi_Khoa_Bieu  group by(HocKy) ",
-cmbHocKy, "HocKy", "HocKy");
-            cmbHocKy.SelectedIndex = -1;
+            
+            
+                DAO.FillDataToCombo("SELECT HocKy  FROM Thoi_Khoa_Bieu  group by(HocKy) ",
+    cmbHocKy, "HocKy", "HocKy");
+
+                cmbHocKy.SelectedIndex = -1;
+            
             DAO.CloseConnection();
+            
+            
+        }
+        private void LoadDataTKB()
+        {
+            string str;
+            str = "SELECT HocKy FROM Thoi_Khoa_Bieu WHERE MaLop = '" + cmbLop.SelectedValue + "'";
+            cmbHocKy.Text = DAO.GetFieldValues(str);
+
         }
 
         private void cmbHocKy_TextChanged(object sender, EventArgs e)
         {
-            string str;
-            if (cmbLop.Text == "")
-            { cmbHocKy.Text = ""; }
-            
-            str = "Select HocKy from Thoi_Khoa_Bieu where MaLop ='" +
-cmbLop.SelectedValue + "' group by(HocKy)";
-            cmbHocKy.Text = DAO.GetFieldValues(str);
+           
 
         }
 
