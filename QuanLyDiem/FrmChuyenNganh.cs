@@ -68,13 +68,34 @@ namespace QuanLyDiem
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
             btnThoat.Enabled = true;
+            btnThem.Enabled = false;
 
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if (txtMaChuyenNganh.Text == "")
+            {
+                MessageBox.Show("Bạn chưa chọn bản ghi nào!", "Thông báo",
+MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (txtTenChuyenNganh.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập tên hàng!", "Thông báo", MessageBoxButtons.OK,
+MessageBoxIcon.Warning);
+                txtTenChuyenNganh.Focus();
+                return;
+            }
+            if (cmbKhoa.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải chọn Khoa!", "Thông báo",
+MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbKhoa.Focus();
+                return;
+            }
 
-            string sql = "update ChuyenNganh set TenChuyenNganh = N'" + txtTenChuyenNganh.Text.Trim() + "' where MaChuyenNganh = '" + txtMaChuyenNganh.Text + "';";
+            string sql = "update ChuyenNganh set TenChuyenNganh = N'" + txtTenChuyenNganh.Text.Trim() + "',MaKhoa='"+cmbKhoa.SelectedValue.ToString()+"' where MaChuyenNganh = '" + txtMaChuyenNganh.Text + "';";
             DAO.OpenConnection();
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = sql;
@@ -159,6 +180,9 @@ namespace QuanLyDiem
             txtMaChuyenNganh.Enabled = false;
             btnHuy.Enabled = false;
 
+            
+
+
 
         }
 
@@ -176,7 +200,9 @@ namespace QuanLyDiem
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Bạn có chắc chắn muốn thoát chương trình không?", "Hỏi Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+                this.Close();
         }
 
         private void GridViewChuyenNganh_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -22,9 +22,10 @@ namespace QuanLyDiem
         private void FrmThoiKhoaBieu_Load(object sender, EventArgs e)
         {
             DAO.OpenConnection();
+            
             cmbLop.Enabled = false;
             cmbMon.Enabled = false;
-            cmbPhong.Enabled = false;
+            cmbPhong.Enabled = true;
             btnHuy.Enabled = false;
             btnLuu.Enabled = false;
             LoadDataToGridView();
@@ -51,17 +52,22 @@ cmbPhong, "MaPhong", "MaPhong");
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            
             cmbLop.Enabled = true;
             cmbMon.Enabled = true;
             cmbPhong.Enabled = true;
             cmbLop.SelectedIndex = -1;
             cmbMon.SelectedIndex = -1;
             cmbPhong.SelectedIndex = -1;
-            btnHuy.Enabled = true;
+            rdohk1.Checked = false; rdohk2.Checked = false; rdohk3.Checked = false; rdohk4.Checked = false; rdohk5.Checked = false; rdohk6.Checked = false; rdohk7.Checked = false; rdohk8.Checked = false;
+            rdoca1.Checked = false; rdoca2.Checked = false; rdoca3.Checked = false; rdoca4.Checked = false; rdoca5.Checked = false;
+            chk2.Checked = false; chk3.Checked = false; chk3.Checked = false; chk4.Checked = false; chk5.Checked = false; chk6.Checked = false; chk7.Checked = false;
             btnLuu.Enabled = true;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
+            btnHuy.Enabled = true;
             btnThoat.Enabled = true;
+            btnThem.Enabled = false;
 
         }
 
@@ -119,7 +125,7 @@ cmbPhong, "MaPhong", "MaPhong");
             if (chk6.Checked == true)
                 strThu += chk6.Text + "_";
             if (chk7.Checked == true)
-                strThu += chk7.Text + "";
+                strThu += chk7.Text + "_";
             if (strThu == "")
                 MessageBox.Show("Bạn chưa chọn Thứ học!");
             int strCa=-1 ;
@@ -159,9 +165,19 @@ cmbPhong, "MaPhong", "MaPhong");
                 cmd.ExecuteNonQuery();
                 DAO.CloseConnection();
                 LoadDataToGridView();
-            }
+                cmbLop.Enabled = false;
+                cmbMon.Enabled = false;
+                btnXoa.Enabled = true;
+                btnThem.Enabled = true;
+                btnSua.Enabled = true;
+                btnHuy.Enabled = false;
+                btnLuu.Enabled = false;
+              
+
 
             }
+
+        }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
@@ -175,18 +191,93 @@ cmbPhong, "MaPhong", "MaPhong");
                 cmd.ExecuteNonQuery();
                 DAO.CloseConnection();
                 LoadDataToGridView();
+                cmbLop.Enabled = false;
+                cmbMon.Enabled = false;
+
             }
 
         }
 
         private void GridViewTKB_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           string ma = GridViewTKB.CurrentRow.Cells["MaLop"].Value.ToString();
+            string ma = GridViewTKB.CurrentRow.Cells["MaLop"].Value.ToString();
             cmbLop.Text = DAO.GetFieldValues("select MaLop from Lop where MaLop = '" + ma + "'");
-           string na= GridViewTKB.CurrentRow.Cells["MaMon"].Value.ToString();
+            string na = GridViewTKB.CurrentRow.Cells["MaMon"].Value.ToString();
             cmbMon.Text = DAO.GetFieldValues("select MaMon from MonHoc where MaMon = '" + na + "'");
-           string la = GridViewTKB.CurrentRow.Cells["MaPhong"].Value.ToString();
+            string la = GridViewTKB.CurrentRow.Cells["MaPhong"].Value.ToString();
             cmbPhong.Text = DAO.GetFieldValues("select MaPhong from PhongHoc where MaPhong = '" + la + "'");
+            if (GridViewTKB.CurrentRow.Cells["HocKy"].Value.ToString() == "1")
+                rdohk1.Checked = true;
+            if (GridViewTKB.CurrentRow.Cells["HocKy"].Value.ToString() == "2")
+                rdohk2.Checked = true;
+            if (GridViewTKB.CurrentRow.Cells["HocKy"].Value.ToString() == "3")
+                rdohk3.Checked = true;
+            if (GridViewTKB.CurrentRow.Cells["HocKy"].Value.ToString() == "4")
+                rdohk4.Checked = true;
+            if (GridViewTKB.CurrentRow.Cells["HocKy"].Value.ToString() == "5")
+                rdohk5.Checked = true;
+            if (GridViewTKB.CurrentRow.Cells["HocKy"].Value.ToString() == "6")
+                rdohk6.Checked = true;
+            if (GridViewTKB.CurrentRow.Cells["HocKy"].Value.ToString() == "7")
+                rdohk7.Checked = true;
+            if (GridViewTKB.CurrentRow.Cells["HocKy"].Value.ToString() == "8")
+                rdohk8.Checked = true;
+            if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Hai_Ba_")
+            { chk2.Checked = true; chk3.Checked = true;chk4.Checked = false;chk5.Checked = false;chk6.Checked = false;chk7.Checked = false; };
+
+            if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Ba_Tư_")
+            { chk3.Checked = true; chk4.Checked = true;chk5.Checked = false; chk6.Checked = false; chk7.Checked = false; chk2.Checked = false; };
+            if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Tư_Năm_")
+            { chk4.Checked = true; chk5.Checked = true; chk2.Checked = false; chk3.Checked = false; chk6.Checked = false; chk7.Checked = false; };
+            if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Năm_Sáu_")
+            { chk5.Checked = true; chk6.Checked = true; chk2.Checked = false; chk3.Checked = false; chk4.Checked = false; chk7.Checked = false; };
+            if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Sáu_Bảy_")
+            { chk6.Checked = true; chk7.Checked = true; chk2.Checked = false; chk3.Checked = false; chk4.Checked = false; chk5.Checked = false; };
+            
+            if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Hai_Bảy_")
+            { chk7.Checked = true; chk2.Checked = true; chk3.Checked = false; chk4.Checked = false; chk5.Checked = false; chk6.Checked = false; };
+            if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Hai_Tư_")
+            { chk4.Checked = true; chk2.Checked = true; chk3.Checked = false; chk5.Checked = false; chk6.Checked = false; chk7.Checked = false; };
+           
+            if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Hai_Năm_")
+            { chk5.Checked = true; chk2.Checked = true; chk3.Checked = false; chk4.Checked = false; chk6.Checked = false; chk7.Checked = false; };
+            
+            if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Hai_Sáu_")
+            { chk6.Checked = true; chk2.Checked = true; chk3.Checked = false; chk4.Checked = false; chk5.Checked = false; chk7.Checked = false; };
+            
+            if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Ba_Năm_")
+            { chk3.Checked = true; chk5.Checked = true; chk2.Checked = false; chk4.Checked = false; chk6.Checked = false; chk7.Checked = false; };
+            
+            if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Ba_Sáu_")
+            { chk3.Checked = true; chk6.Checked = true; chk2.Checked = false; chk4.Checked = false; chk5.Checked = false; chk7.Checked = false; };
+            
+            if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Ba_Bảy_")
+            { chk3.Checked = true; chk7.Checked = true; chk2.Checked = false; chk4.Checked = false; chk5.Checked = false; chk6.Checked = false; };
+            
+
+            if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Tư_Sáu_")
+            { chk4.Checked = true; chk6.Checked = true; chk2.Checked = false; chk3.Checked = false; chk5.Checked = false; chk7.Checked = false; };
+            
+            if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Tư_Bảy_")
+            { chk4.Checked = true; chk7.Checked = true; chk2.Checked = false; chk3.Checked = false; chk5.Checked = false; chk6.Checked = false; };
+            
+            if (GridViewTKB.CurrentRow.Cells["ThuHoc"].Value.ToString() == "Năm_Bảy_")
+            { chk5.Checked = true; chk7.Checked = true; chk2.Checked = false; chk3.Checked = false; chk4.Checked = false; chk6.Checked = false; };
+            
+
+            if (GridViewTKB.CurrentRow.Cells["CaHoc"].Value.ToString() == "1")
+                rdoca1.Checked = true;
+            if (GridViewTKB.CurrentRow.Cells["CaHoc"].Value.ToString() == "2")
+                rdoca2.Checked = true;
+            if (GridViewTKB.CurrentRow.Cells["CaHoc"].Value.ToString() == "3")
+                rdoca3.Checked = true;
+            if (GridViewTKB.CurrentRow.Cells["CaHoc"].Value.ToString() == "4")
+                rdoca4.Checked = true;
+            if (GridViewTKB.CurrentRow.Cells["CaHoc"].Value.ToString() == "5")
+                rdoca5.Checked = true;
+
+
+
 
 
 
@@ -194,9 +285,7 @@ cmbPhong, "MaPhong", "MaPhong");
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            cmbLop.Enabled = true;
-            cmbMon.Enabled = true;
-            cmbPhong.Enabled = true;
+            
             int strHK = -1;
 
             if (rdohk1.Checked == true)
@@ -229,7 +318,7 @@ cmbPhong, "MaPhong", "MaPhong");
             if (chk6.Checked == true)
                 strThu += chk6.Text + "_";
             if (chk7.Checked == true)
-                strThu += chk7.Text + "";
+                strThu += chk7.Text + "_";
            
             int strCa = -1;
             if (rdoca1.Checked == true)
@@ -244,45 +333,45 @@ cmbPhong, "MaPhong", "MaPhong");
                 strCa = Convert.ToInt32(rdoca5.Text);
             
 
-            if (cmbLop.SelectedValue.ToString() == "")
+            if (cmbLop.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Bạn chưa chọn Lớp!", "Thông báo",
+                MessageBox.Show("Bạn chưa chọn bản ghi nào!", "Thông báo",
 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cmbLop.Focus();
                 return;
                 
             }
-            if (cmbMon.SelectedValue.ToString() == "")
+            if (cmbMon.Text.Trim().Length ==0 )
             {
-                MessageBox.Show("Bạn chưa chọn Môn!", "Thông báo",
+                MessageBox.Show("Bạn chưa chọn bản ghi nào!", "Thông báo",
 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cmbMon.Focus();
                 return;
             }
-            if (cmbPhong.SelectedValue.ToString() == "")
+            if (cmbPhong.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Bạn phải chọn Phòng", "Thông báo", MessageBoxButtons.OK,
+                MessageBox.Show("Bạn phải chọn Phòng!", "Thông báo", MessageBoxButtons.OK,
 MessageBoxIcon.Warning);
                 cmbPhong.Focus();
                 return;
             }
             if (strHK == -1)
             {
-                MessageBox.Show("Bạn phải chọn Học Kỳ", "Thông báo",
+                MessageBox.Show("Bạn phải chọn Học Kỳ!", "Thông báo",
 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 
                 return;
             }
             if (strCa == -1)
             {
-                MessageBox.Show("Bạn phải chọn Ca học", "Thông báo",
+                MessageBox.Show("Bạn phải chọn Ca học!", "Thông báo",
 MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 return;
             }
             if (strThu == "")
             {
-                MessageBox.Show("Bạn phải chọn Thứ học", "Thông báo",
+                MessageBox.Show("Bạn phải chọn Thứ học!", "Thông báo",
 MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 return;
@@ -297,6 +386,9 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
             cmd.ExecuteNonQuery();
             DAO.CloseConnection();
             LoadDataToGridView();
+            cmbLop.Enabled = false;
+            cmbMon.Enabled = false;
+            btnHuy.Enabled = false;
 
         }
 
@@ -311,12 +403,16 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
             btnXoa.Enabled = true;
             btnSua.Enabled = true;
             btnLuu.Enabled = false;
-            
+            cmbLop.Enabled = false;
+            cmbMon.Enabled = false;
+
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Bạn có chắc chắn muốn thoát chương trình không?", "Hỏi Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+                this.Close();
         }
 
         private void label1_Click(object sender, EventArgs e)

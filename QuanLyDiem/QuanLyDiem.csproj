@@ -75,6 +75,12 @@
     <Compile Include="FrmChuyenNganh.Designer.cs">
       <DependentUpon>FrmChuyenNganh.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmInTKB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInTKB.Designer.cs">
+      <DependentUpon>FrmInTKB.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     <EmbeddedResource Include="FrmChuyenNganh.resx">
       <DependentUpon>FrmChuyenNganh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmInTKB.resx">
+      <DependentUpon>FrmInTKB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSinhVien.resx">
       <DependentUpon>FrmSinhVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +140,38 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -38,6 +38,7 @@
             this.cmbQue = new System.Windows.Forms.ComboBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.GridViewTimKiem = new System.Windows.Forms.DataGridView();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.MaSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaKhoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,7 +50,6 @@
             this.MaChuyenNganh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaHDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnThoat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewTimKiem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,39 +101,42 @@
             // cmbKhoa
             // 
             this.cmbKhoa.FormattingEnabled = true;
-            this.cmbKhoa.Location = new System.Drawing.Point(336, 69);
+            this.cmbKhoa.Location = new System.Drawing.Point(319, 69);
             this.cmbKhoa.Name = "cmbKhoa";
-            this.cmbKhoa.Size = new System.Drawing.Size(121, 21);
+            this.cmbKhoa.Size = new System.Drawing.Size(138, 21);
             this.cmbKhoa.TabIndex = 1;
             this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // cmbChuyenNganh
             // 
             this.cmbChuyenNganh.FormattingEnabled = true;
-            this.cmbChuyenNganh.Location = new System.Drawing.Point(336, 111);
+            this.cmbChuyenNganh.Location = new System.Drawing.Point(319, 111);
             this.cmbChuyenNganh.Name = "cmbChuyenNganh";
-            this.cmbChuyenNganh.Size = new System.Drawing.Size(121, 21);
+            this.cmbChuyenNganh.Size = new System.Drawing.Size(138, 21);
             this.cmbChuyenNganh.TabIndex = 1;
             this.cmbChuyenNganh.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // cmbQue
             // 
             this.cmbQue.FormattingEnabled = true;
-            this.cmbQue.Location = new System.Drawing.Point(336, 152);
+            this.cmbQue.Location = new System.Drawing.Point(319, 152);
             this.cmbQue.Name = "cmbQue";
-            this.cmbQue.Size = new System.Drawing.Size(121, 21);
+            this.cmbQue.Size = new System.Drawing.Size(138, 21);
             this.cmbQue.TabIndex = 1;
             this.cmbQue.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnTimKiem.BackColor = System.Drawing.Color.Silver;
+            this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
+            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTimKiem.Location = new System.Drawing.Point(336, 195);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(121, 31);
+            this.btnTimKiem.Size = new System.Drawing.Size(100, 31);
             this.btnTimKiem.TabIndex = 2;
             this.btnTimKiem.Text = "Tìm Kiếm";
+            this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTimKiem.UseVisualStyleBackColor = false;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
@@ -158,9 +161,24 @@
             this.GridViewTimKiem.Size = new System.Drawing.Size(703, 128);
             this.GridViewTimKiem.TabIndex = 3;
             // 
+            // btnThoat
+            // 
+            this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
+            this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThoat.Location = new System.Drawing.Point(352, 376);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(2);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(64, 41);
+            this.btnThoat.TabIndex = 68;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // MaSV
             // 
             this.MaSV.DataPropertyName = "MaSV";
+            this.MaSV.FillWeight = 150F;
             this.MaSV.HeaderText = "Mã SV";
             this.MaSV.Name = "MaSV";
             this.MaSV.Width = 60;
@@ -235,19 +253,6 @@
             this.MaChucVu.Name = "MaChucVu";
             this.MaChucVu.Width = 60;
             // 
-            // btnThoat
-            // 
-            this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
-            this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThoat.Location = new System.Drawing.Point(363, 376);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(2);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(64, 41);
-            this.btnThoat.TabIndex = 68;
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnThoat.UseVisualStyleBackColor = true;
-            // 
             // FrmTimKiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -284,6 +289,7 @@
         private System.Windows.Forms.ComboBox cmbQue;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.DataGridView GridViewTimKiem;
+        private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSV;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSV;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKhoa;
@@ -295,6 +301,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MaChuyenNganh;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaHDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaChucVu;
-        private System.Windows.Forms.Button btnThoat;
     }
 }
