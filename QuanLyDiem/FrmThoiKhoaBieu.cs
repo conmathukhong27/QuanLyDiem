@@ -127,8 +127,11 @@ cmbPhong, "MaPhong", "MaPhong");
                 strHK = Convert.ToInt32(rdohk7.Text);
             if (rdohk8.Checked == true)
                 strHK = Convert.ToInt32(rdohk8.Text);
-            if (strHK ==-1)
+            if (strHK == -1)
+            {
                 MessageBox.Show("Bạn chưa chọn Học Kỳ!");
+                return;
+            }
             string strThu = "";
             if (chk2.Checked == true)
                 strThu += chk2.Text + "_";
@@ -143,7 +146,10 @@ cmbPhong, "MaPhong", "MaPhong");
             if (chk7.Checked == true)
                 strThu += chk7.Text + "_";
             if (strThu == "")
+            {
                 MessageBox.Show("Bạn chưa chọn Thứ học!");
+                return;
+            }
             int strCa=-1 ;
             if (rdoca1.Checked == true)
                 strCa = Convert.ToInt32(rdoca1.Text);
@@ -155,8 +161,11 @@ cmbPhong, "MaPhong", "MaPhong");
                 strCa = Convert.ToInt32(rdoca4.Text);
             if (rdoca5.Checked == true)
                 strCa = Convert.ToInt32(rdoca5.Text);
-            if (strCa ==-1 )
+            if (strCa == -1)
+            {
                 MessageBox.Show("Bạn chưa chọn Ca học!");
+                return;
+            }
 
 
             string sql = "select * from Thoi_Khoa_Bieu where MaLop='" + cmbLop.SelectedValue.ToString() + "' and MaMon='" + cmbMon.SelectedValue.ToString() + "'" ;
