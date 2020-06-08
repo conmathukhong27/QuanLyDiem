@@ -78,6 +78,7 @@
             this.cmbLop.Name = "cmbLop";
             this.cmbLop.Size = new System.Drawing.Size(121, 21);
             this.cmbLop.TabIndex = 3;
+            this.cmbLop.SelectedIndexChanged += new System.EventHandler(this.cmbLop_SelectedIndexChanged);
             // 
             // cmbHocKy
             // 
@@ -86,6 +87,7 @@
             this.cmbHocKy.Name = "cmbHocKy";
             this.cmbHocKy.Size = new System.Drawing.Size(121, 21);
             this.cmbHocKy.TabIndex = 4;
+            this.cmbHocKy.SelectedIndexChanged += new System.EventHandler(this.cmbHocKy_SelectedIndexChanged);
             this.cmbHocKy.TextChanged += new System.EventHandler(this.cmbHocKy_TextChanged);
             // 
             // btnIn

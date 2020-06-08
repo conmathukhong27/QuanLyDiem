@@ -31,9 +31,12 @@ namespace QuanLyDiem
             
                 DAO.FillDataToCombo("SELECT HocKy  FROM Thoi_Khoa_Bieu  group by(HocKy) ",
     cmbHocKy, "HocKy", "HocKy");
+            cmbLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cmbHocKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cmbHocKy.SelectedIndex = -1;
+            cmbLop.SelectedIndexChanged += cmbLop_SelectedIndexChanged;
+            cmbHocKy.SelectedIndexChanged += cmbHocKy_SelectedIndexChanged;
 
-                cmbHocKy.SelectedIndex = -1;
-            
             DAO.CloseConnection();
             
             
@@ -96,22 +99,25 @@ namespace QuanLyDiem
 
             // Biểu diễn thông tin TKB
             //Tạo dòng tiêu đề bảng
+            
             exRange.Range["D7:J7"].Font.Bold = true;
             exRange.Range["D7:J7"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
             exRange.Range["D7:J7"].ColumnWidth = 12;
             exRange.Range["D7:D7"].Value = "STT";
-            exRange.Range["E7:E7"].Value = "Mã lớp";
-            
+            exRange.Range["D7:D7"].Font.Size = 13;
+            exRange.Range["E7:E7"].Value = "Mã lớp"; 
+            exRange.Range["E7:E7"].Font.Size = 13;
+
             exRange.Range["F7:F7"].Value = "Mã môn";
-           
+            exRange.Range["F7:F7"].Font.Size = 13;
             exRange.Range["G7:G7"].Value = "Học kỳ";
-            
+            exRange.Range["G7:G7"].Font.Size = 13;
             exRange.Range["H7:H7"].Value = "Thứ học";
-            
+            exRange.Range["H7:H7"].Font.Size = 13;
             exRange.Range["I7:I7"].Value = "Ca học";
-            
+            exRange.Range["I7:I7"].Font.Size = 13;
             exRange.Range["J7:J7"].Value = "Tên phòng";
-            
+            exRange.Range["J7:J7"].Font.Size = 13;
             for (hang = 0; hang <= Thoi_Khoa_Bieu.Rows.Count - 1; hang++)
             {
                 //Điền số thứ tự vào cột 4 từ dòng 8
@@ -127,7 +133,22 @@ namespace QuanLyDiem
 
         }
 
+        private void cmbLop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbLop.SelectedIndex != -1 )
+            {
+                string str;
+                str = "select distinct HocKy from Thoi_Khoa_Bieu where MaLop = '" + cmbLop.SelectedValue + "' ";
+                // MessageBox.Show(str);
+                DAO.FillDataToCombo(str, cmbHocKy, "HocKy", "HocKy");
 
+            }
+        }
+
+        private void cmbHocKy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
 
